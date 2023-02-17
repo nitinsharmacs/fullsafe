@@ -1,0 +1,7 @@
+sr|problem|solution|priority|status
+
+1|make update_config_file for multiple keys values|first make a script file for array functions like in js|moderate|pending
+2|implement array.lib functions when it will be ready instead hacks| - |high|pending
+3|show something when no output found of list command| - |moderate|solved
+4|enable bash expansions like "*"| - |moderate|solved
+5|change the documentation style| - |moderate|pending
