@@ -1,0 +1,207 @@
+<html>
+
+<head>
+    <title>Fullsafe Manual</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 id="fullsafe_heading">FULLSAFE</h1>
+        </header>
+        <div class="content-container">
+            <aside class="document-toc-container">
+                <header>
+                    <h2>Table of Contents</h2>
+                </header>
+                <ul>
+                    <li><a href="#name">NAME</a></li>
+                    <li><a href="#synopsis">SYNOPSIS</a></li>
+                    <li><a href="#description">DESCRIPTION</a></li>
+                    <li><a href="#commands">COMMANDS</a></li>
+                    <li><a href="#setup&configurations">SETUP & CONFIGURATIONS</a></li>
+                    <li><a href="#examples">EXAMPLES</a></li>
+                    <li><a href="#exit_status">EXIT STATUS</a></li>
+                    <li><a href="#see_also">SEE ALSO</a></li>
+                    <li><a href="#author">AUTHOR</a></li>
+                </ul>
+            </aside>
+            <main class="main-document">
+                <article>
+                    <section id="name" class="doc-section">
+                        <h2>NAME</h2>
+                        <p>fullsafe - create and manage backups and versions.</p>
+                    </section>
+                    <section id="synopsis" class="doc-section">
+                        <h2>SYNOPSIS</h2>
+                        <p>fullsafe &lt;command&gt; [options] args</p>
+                    </section>
+                    <section id="description" class="doc-section">
+                        <h2>DESCRIPTION</h2>
+                        <p>fullsafe is a backup tool that helps to create and manage backups. It provides some
+                            sub-commands
+                            to
+                            deal
+                            with
+                            backups. <br /> It stores all the backup files in the respective directories in the central
+                            location.
+                            This
+                            central location resides in home directory that can be found by name
+                            <em>.fullsafe_backups</em>.
+                        </p>
+                    </section>
+                    <section id="commands" class="doc-section">
+                        <h2>COMMANDS</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                    <th>Options</th>
+                                    <th>Syntax</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>init</td>
+                                    <td>Initialise the fullsafe on the directory.</td>
+                                    <td>-</td>
+                                    <td>fullsafe init &lt;directory files&gt;</td>
+                                </tr>
+                                <tr>
+                                    <td>backup</td>
+                                    <td>Create backup</td>
+                                    <td>[-z zip archieve]</td>
+                                    <td>fullsafe backup [-z]</td>
+                                </tr>
+                                <tr>
+                                    <td>restore</td>
+                                    <td>Restore backup</td>
+                                    <td>-</td>
+                                    <td>fullsafe restore &lt;backup file&gt; &lt;destination&gt;</td>
+                                </tr>
+                                <tr>
+                                    <td>list</td>
+                                    <td>List backups for the directory</td>
+                                    <td>-</td>
+                                    <td>fullsafe list</td>
+                                </tr>
+                                <tr>
+                                    <td>delete</td>
+                                    <td>Delete backup</td>
+                                    <td>-</td>
+                                    <td>fullsafe delete &lt;backup file&gt;</td>
+                                </tr>
+                                <tr>
+                                    <td>content</td>
+                                    <td>Show contents in the backup files</td>
+                                    <td>-</td>
+                                    <td>fullsafe content &lt;backup file/s&gt;</td>
+                                </tr>
+                                <tr>
+                                    <td>update</td>
+                                    <td>Update fullsafe configurations</td>
+                                    <td>
+                                        <p>[-af add files] <br /> [-rm remove files] <br /> [-d rename backup directory]
+                                            <br />
+                                            [-v
+                                            change
+                                            version]
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>fullsafe update -af &lt;directory files&gt;<br /> fullsafe update -rm
+                                            &lt;files&gt;<br />fullsafe
+                                            update -d &lt;new directory name&gt; <br />fullsafe update -v &lt;new
+                                            version&gt;
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>--help</td>
+                                    <td>Display fullsafe usages and commands</td>
+                                    <td>-</td>
+                                    <td>fullsafe --help</td>
+                                </tr>
+                                <tr>
+                                    <td>manual</td>
+                                    <td>Open fullsafe manual in the browser</td>
+                                    <td>-</td>
+                                    <td>fullsafe manual</td>
+                                </tr>
+                                <tr>
+                                    <td>--version</td>
+                                    <td>Display fullsafe version</td>
+                                    <td>-</td>
+                                    <td>fullsafe --version</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section id="setup&configurations" class="doc-section">
+                        <h2>SETUP & CONFIGURATIONS</h2>
+                        <p>Before creating backups, fullsafe needs to be initialized on the directory. Every
+                            initialisation
+                            is
+                            separate
+                            for
+                            different directories. Post initialisation, backup can be created. <br />fullsafe
+                            configurations
+                            are
+                            stored
+                            in
+                            the <em>.fullsafe.config</em> file in the directory. If this file is absent, fullsafe needs
+                            to
+                            be
+                            reinitialised.
+                        </p>
+                    </section>
+                    <section id="examples" class="doc-section">
+                        <h2>EXAMPLES</h2>
+                        <p>
+                            Below are the some examples :
+                        <div class="code-block">
+                            <code>$ fullsafe init *</code>
+                            <code>$ fullsafe backup</code>
+                            <code>$ fullsafe restore 20211207_092102_v20.tar.gz myBackup</code>
+                            <code>$ fullsafe delete 20211207_092102_v20.tar.gz</code>
+                        </div>
+                        Changing the backup directory name
+                        <div class="code-block">
+                            <code>$ fullsafe update -d newBackupDirName</code>
+                        </div>
+                        </p>
+                    </section>
+                    <section id="exit_status" class="doc-section">
+                        <h2>EXIT STATUS</h2>
+                        <p>fullsafe returns following exit status :
+                        <ul>
+                            <li>0 for success</li>
+                            <li>3 for some functional error</li>
+                            <li>4 if backup file or any dependency is missing</li>
+                            <li>5 if there is wrong input from the user</li>
+                        </ul>
+                        </p>
+                    </section>
+                    <section id="see_also" class="doc-section">
+                        <h2>SEE ALSO</h2>
+                        <p><a href="https://man7.org/linux/man-pages/man1/tar.1.html" target="_blank">tar(1)</a>,
+                            <a href="https://man7.org/linux/man-pages/man1/ls.1.html" target="=" _blank>ls(1)</a>
+                        </p>
+                    </section>
+                    <section id="author" class="doc-section">
+                        <h2>AUTHOR</h2>
+                        <p>Nitin (<a href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+                                target="_blank">nitin123narayan123@gmail.com</a>)</p>
+                    </section>
+                </article>
+            </main>
+        </div>
+        <footer>
+            <a href="#fullsafe_heading">Goto top</a>
+        </footer>
+    </div>
+</body>
+
+</html>
